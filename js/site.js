@@ -79,7 +79,8 @@
     $('.tv-chart').addEventListener('reveal', () => { $('#chart').classList.add('on'); $$('#chart i').forEach(i => i.style.height = `calc(${i.dataset.h}% - 40px)`); }, { once: true });
 
     // logos marquee (twice, for a seamless loop)
-    const logos = s.logos.map(l => `<img src="${l}" alt="" loading="lazy" width="112" height="84">`).join('');
+    const logoName = Object.fromEntries(s.brands.map(b => [b.logo, b.name]));
+    const logos = s.logos.map(l => `<img src="${l}" alt="${esc(logoName[l] ? 'Λογότυπο ' + logoName[l] : 'Πελάτης της ViralBizMedia')}" loading="lazy" width="112" height="84">`).join('');
     $('#logoTrack').innerHTML = logos + logos;
 
     // brands
@@ -96,8 +97,8 @@
       else if (b.views >= 20000) stat = `<b class="bnum">${short(b.views)}</b><span class="blabel">προβολές στο καλύτερο βίντεο</span>`;
       else stat = `<span class="blabel">Νέα συνεργασία</span>`;
       const extra = '';
-      const bg = b.clip ? `<img class="bposter" src="${b.poster}" alt="" loading="lazy"><span class="play"></span>`
-                        : `<span class="bnoclip"><img src="${b.logo}" alt="" loading="lazy"></span>`;
+      const bg = b.clip ? `<img class="bposter" src="${b.poster}" alt="${esc(b.name)}: βίντεο από τη ViralBizMedia" loading="lazy"><span class="play"></span>`
+                        : `<span class="bnoclip"><img src="${b.logo}" alt="Λογότυπο ${esc(b.name)}" loading="lazy"></span>`;
       const tag = b.clip ? 'button' : 'div';
       return `<article class="bcard rv" data-id="${b.id}"><${tag} class="bmedia"${b.clip ? ` aria-label="Δες βίντεο: ${esc(b.name)}"` : ''}>${bg}
         <span class="btop-row"><img class="blogo" src="${b.logo}" alt="" loading="lazy"><span class="bcat">${esc(b.category)}</span></span>
