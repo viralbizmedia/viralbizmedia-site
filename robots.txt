@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /tools/
+Disallow: /logs/
+
+Sitemap: https://www.viralbizmedia.com/sitemap.xml
