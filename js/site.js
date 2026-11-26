@@ -37,7 +37,7 @@
   }), { threshold: .2 });
 
   /* reveal on scroll */
-  $$('.srcs li,.bank-core,.idea-eg,.pillar,.cmp,.svc,.steps li,.tv-main,.tile,.tv-chart,details,.cl,.form').forEach(el => { el.classList.add('rv'); io.observe(el); });
+  $$('.dept-col,.srcs li,.bank-core,.idea-eg,.pillar,.cmp,.svc,.steps li,.tv-main,.tile,.tv-chart,details,.cl,.form').forEach(el => { el.classList.add('rv'); io.observe(el); });
 
   /* player */
   const dlg = $('#player'), pv = $('video', dlg);
