@@ -1,7 +1,7 @@
-/* Cookies: τίποτα από Google (Analytics / Ads / Χάρτης) δεν φορτώνει πριν πατήσει ο επισκέπτης «Αποδοχή».
+/* Cookies: τίποτα από Google (Analytics / Ads / Χάρτης) ή Meta Pixel δεν φορτώνει πριν πατήσει ο επισκέπτης «Αποδοχή».
    Η επιλογή μένει στο localStorage («vbm_consent» = granted | denied). Ρυθμίσεις ξανά: link «Cookies» στο footer. */
 (() => {
-  const GA = 'G-BZWX01YLWP', ADS = 'AW-17942909098', KEY = 'vbm_consent';
+  const GA = 'G-BZWX01YLWP', ADS = 'AW-17942909098', FB_PIXEL = '1161893722848867', KEY = 'vbm_consent';
   const get = () => { try { return localStorage.getItem(KEY); } catch (e) { return null; } };
   const set = v => { try { localStorage.setItem(KEY, v); } catch (e) {} };
   let loaded = false;
@@ -18,11 +18,26 @@
     const s = document.createElement('script');
     s.async = true; s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA;
     document.head.appendChild(s);
+    loadMeta();
     document.dispatchEvent(new Event('vbm:consent'));
   }
 
+  function loadMeta() {
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', FB_PIXEL);
+    fbq('track', 'PageView');
+  }
+
   // μετρήσεις επικοινωνίας (μόνο αν έχει γίνει αποδοχή)
-  window.vbmTrack = (method) => { if (loaded) gtag('event', 'generate_lead', { method }); };
+  window.vbmTrack = (method) => {
+    if (!loaded) return;
+    gtag('event', 'generate_lead', { method });
+    if (window.fbq) fbq('track', method === 'form' ? 'Lead' : 'Contact', { method });
+  };
 
   function banner() {
     if (document.getElementById('cookieBar')) return;
