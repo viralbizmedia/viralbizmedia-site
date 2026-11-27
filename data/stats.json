@@ -1,82 +1,82 @@
 {
- "updated": "2026-11-26T07:01",
+ "updated": "2026-11-27T22:02",
  "agency": {
-  "views": 52537935,
-  "interactions": 1124195,
-  "likes": 995472,
-  "new_followers": 64585,
+  "views": 52788666,
+  "interactions": 1128591,
+  "likes": 999328,
+  "new_followers": 65062,
   "videos": 1500,
   "platforms": [
    {
     "name": "TikTok",
-    "views": 25357710
+    "views": 25450248
    },
    {
     "name": "Facebook",
-    "views": 12391292
+    "views": 12465735
    },
    {
     "name": "Instagram",
-    "views": 11755241
+    "views": 11808250
    },
    {
     "name": "YouTube",
-    "views": 3033692
+    "views": 3064433
    }
   ],
   "months": [
    {
     "label": "ΦΕΒ",
-    "views": 2598779,
+    "views": 2598827,
     "partial": false
    },
    {
     "label": "ΜΑΡ",
-    "views": 4519102,
+    "views": 4519115,
     "partial": false
    },
    {
     "label": "ΑΠΡ",
-    "views": 4537065,
+    "views": 4537070,
     "partial": false
    },
    {
     "label": "ΜΑΪ",
-    "views": 4803233,
+    "views": 4803285,
     "partial": false
    },
    {
     "label": "ΙΟΥΝ",
-    "views": 6233911,
+    "views": 6234187,
     "partial": false
    },
    {
     "label": "ΙΟΥΛ",
-    "views": 6486013,
+    "views": 6486290,
     "partial": false
    },
    {
     "label": "ΑΥΓ",
-    "views": 6760968,
+    "views": 6761730,
     "partial": false
    },
    {
     "label": "ΣΕΠ",
-    "views": 3947139,
+    "views": 3951825,
     "partial": false
    },
    {
     "label": "ΟΚΤ",
-    "views": 8597273,
+    "views": 8607880,
     "partial": false
    },
    {
     "label": "ΝΟΕ",
-    "views": 4054452,
+    "views": 4288457,
     "partial": true
    }
   ],
-  "period": "Φεβ – 26 Νοε 2026"
+  "period": "Φεβ – 27 Νοε 2026"
  },
  "brands": [
   {
